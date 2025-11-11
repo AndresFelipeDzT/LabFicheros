@@ -19,29 +19,29 @@
 #include <dirent.h>
 
 int main() {
-    DIR *d;
-    char nomdir[90], nomfich[90];
-    struct stat datos;
+    DIR *d; //Apuntador al directorio
+    char nomdir[90], nomfich[90]; //Variables para los directorios
+    struct stat datos; //Estructuras para organizar
     struct dirent *direc;
 
-    printf("Introduzca el Nombre de un Directorio: ");
+    printf("Introduzca el Nombre de un Directorio: "); //Parametro de entrada que es el del directrio
     fgets(nomdir, sizeof(nomdir), stdin);
     nomdir[strlen(nomdir)-1] = '\0'; /* Eliminamos el \n del Nombre del Fichero */
-    
+    //Si nolo encuentra muestra el mensaje de error
     if ((d = opendir(nomdir)) == NULL) {
         printf("El directorio no existe\n");
         return -1;
     }
-
+    //Mientras lea el directorio obtiene sus datos
     while ((direc = readdir(d)) != NULL) {
-        strcpy(nomfich, nomdir);
-        strcat(nomfich, "/");
+        strcpy(nomfich, nomdir); //Obtiene el nombre
+        strcat(nomfich, "/"); 
         strcat(nomfich, direc->d_name);
-        stat(nomfich, &datos);
+        stat(nomfich, &datos); //Obtiene los datos
         if (S_ISREG(datos.st_mode))
             printf("Nombre: %s\t| Tamaño: %ld\n", direc->d_name, datos.st_size);
     } /* Fin del While */
     
-    closedir(d);
+    closedir(d); //Lo cierra
     return 0;
 }
