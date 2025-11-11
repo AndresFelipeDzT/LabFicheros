@@ -6,7 +6,8 @@
 * Materia: Sistemas opertivos
 * Temas: Laboratorio01 Sistemas de Ficheros
 * Descripcion:
-*    AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+*	Realizar un programa en C que lea de teclado el nombre de un directorio y 
+*	muestre en pantalla el nombre y el tamaño de los ficheros que contiene.
 ******************************************************/
 #include <sys/types.h>
 #include <sys/stat.h>
