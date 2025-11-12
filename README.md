@@ -7,4 +7,4 @@
 *	pantalla los nombres de ficheros y directorios
 *	que contiene, su modo, si tienen o no permiso de lectura para el propietario, 
 *	si son directorios y, para los ficheros modificados en los últimos 10 días, su fecha de acceso
-******************************************************/
+
